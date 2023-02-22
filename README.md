@@ -1,10 +1,13 @@
-# 创建新的分类
+# Create a new category 
 
-在 categories 下创建 name.html
+Create name.html under categories
 
+for instance: 
+```
     ---
     layout: page
     type: name
     ---
 
     {% include archive.html %}
+```
