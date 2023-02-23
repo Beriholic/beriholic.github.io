@@ -1,6 +1,6 @@
 ---
 title: Hello Beriholic
-categories: [writing]
+categories: writing
 comments: true
 ---
 
