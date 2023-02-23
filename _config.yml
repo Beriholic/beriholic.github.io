@@ -1,5 +1,5 @@
 title: Beriholic
-email: bigmsir@gmail.com
+email: 
 
 description: > # this means to ignore newlines until "baseurl"
   Write an awesome description for your new site here. You can edit this
@@ -21,7 +21,7 @@ cusdis:
 
 user:
   name: Beriholic
-  pic: /assets/img/img.jpg
+  pic: /assets/img/im.jpg
   picAlt: "mac"
   job: 永远年轻，永远热泪盈眶
   aboutme: false # comment this out if you don't need the 'about' page.
