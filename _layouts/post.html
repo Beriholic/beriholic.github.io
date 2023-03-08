@@ -1,47 +1,37 @@
 ---
-layout: default
+layout: page
 ---
+<div class="post">
+<link href="/assets/css/syntax.css" rel="stylesheet"/>
+  <div>
+    {% if page.title %}
+    <p class="post_title">{{ page.title }}</p>
+    {% endif %}
+  </div>
+  <div class="post_data">
+    {% if page.date %}
+    <span class="post_date">{{ page.date | date: "%b %-d, %Y" }}</span>
+    {% endif %}
+    {% if page.categories %}
+    <span class="post_categories">
+      &raquo; {% for cat_name in page.categories %}
+      <a href="{{ site.baseurl }}/categories/{{ cat_name }}">{{ cat_name }}</a>{% if forloop.last == false %},
+      {% endif %}{% endfor %}
+    </span>
+    {% endif %}
+  </div>
+  <div class="post_content">
+    {{ content }}
+  </div>
 
-<div class = "single-post">
-        <div class="categories">
-                {% assign categories = page.categories %}
-                {% for category in categories %}
-                  <a href="{% capture url %}/cat/#{{ category | slugify }}{% endcapture %}
-                  {{ url | absolute_url }}">{{category}}</a>
-                  {% unless forloop.last %}&nbsp;{% endunless %} 
-                {% endfor %}
-        </div>
-        <h2>{{page.title}}</h2>
 
-        {% if post.cover %}
-                <img src="{{post.cover}}" alt="Podcast Cover">
-        {% else %}
-                <img src="{{ "/assets/img/Podcast_Cover_500.jpg" | absolute_url}}" alt="Podcast Cover">
-        {% endif %}
-        
-        <p>{{page.description}}</p>
+  {% if page.comment %}
+  <div class="post_comment">
 
-        {% capture file %}
-                {{- page.file -}}
-        {% endcapture %}
-        {% capture title %}
-                {{- page.title -}}
-        {% endcapture %}
+    {% include disqus.html username = site.disqus.shortname %}
+    {% include cusdis.html %}
 
-        {% include player.html file = file title = title %}
+  </div>
+  {% endif %}
 
-        {% if page.videoid %}
-                {% include video.html videoid = page.videoid %}
-        {% endif %}
-
-        {{ content }}
-
-        {% if site.data.settings.shownotes == true %}
-                {% include shownotes.html %}
-        {% endif %}
-
-        
 </div>
-{% if site.settings.disqus-shortname %}
-        {%- include disqus.html -%}
-{% endif %}
