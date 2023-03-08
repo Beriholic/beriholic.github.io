@@ -1,3 +1,6 @@
+---
+categories: code
+---
 # Mashmokh and ACM
 
 ## 题目描述
